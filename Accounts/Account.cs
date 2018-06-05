@@ -8,5 +8,28 @@ namespace Accounts
 {
 	class Account
 	{
+		static long actNum = 1000;
+		public decimal balance { get; set; }
+		protected string Owner { get; set; }
+		protected string Description { get; set; }
+		protected long id;
+		public Account()
+		{
+			id = ++actNum;
+		}
+
+		public void deposit(decimal amount) {
+			balance += amount;
+		}
+		public void withdraw(decimal amount) {
+			balance -= amount;
+			if (balance < 0) {
+				Console.WriteLine("You are now in the negatives");
+			}
+		}
+		public Account(decimal amount) {
+			balance = amount;
+			id = ++actNum;
+		}
 	}
 }
