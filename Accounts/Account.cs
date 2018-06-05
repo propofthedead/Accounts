@@ -19,9 +19,16 @@ namespace Accounts
 		}
 
 		public void deposit(decimal amount) {
+			if (amount < 0) {
+				Console.WriteLine("You can not put in a negative");
+				return;
+					}
 			balance += amount;
 		}
 		public void withdraw(decimal amount) {
+			if (amount < 0) { Console.WriteLine("You can not put in a negative");
+				return;
+			}
 			balance -= amount;
 			if (balance < 0) {
 				Console.WriteLine("You are now in the negatives");
